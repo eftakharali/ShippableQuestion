@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" >
+<head>
+  <meta charset="utf-8">
+  <title>Shippable App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="bodyWrap">
+  <div ng-controller="Ctrl">
+    <div class="container-fluid ">
+      <div class="row" align="center">
+        <h1>Enter the URL </h1>
+        <!-- Input the url-->
+        <div class="form-group">
+          <input type="text" id="url" class="form-control" placeholder="Full URL of GitHub repository" ng-model="inputUrl"/ >
+          <br/>
+          <button class="btn btn-primary"ng-click="fetchData()">Submit</button>
+        </div>
+        <!-- Table to display the data-->
+        <div ng-show="totalIssues">
+          <table class="table table-bordered"> 
+            <thead>
+              <tr>
+                <td>Description</td>
+                <td>Count</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Total number of open issues</td>
+                <td>{{totalIssues}}</td>
+              </tr>
+              <tr>
+                <td>Number of open issues that were opened in the last 24 hours</td>
+                <td>{{issuesLast24Hours}}</td>
+              </tr>
+              <tr>
+                <td>Number of open issues that were opened more than 24 hours ago but less than 7 days ago</td>
+                <td>{{issuesLastWeek}}</td>
+              </tr>
+              <tr>
+                <td>Number of open issues that were opened more than 7 days ago </td>
+                <td>{{issuesBeforeLastWeek}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 ng-hide="totalIssues" class="text-danger">{{error}}</h3>
+      </div>
+    </div>
+  </div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+<script src="app.js"></script>
+<script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.4.js"></script>
+</body>
+</html>

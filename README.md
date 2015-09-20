@@ -22,3 +22,6 @@ Then with Github api to find the repo information we are checking the total numb
 To find open isses within the given time limit
  Since github api gives issues in an repo for just one page we reading through all the pages by looping and checking the updated date of each issues and comparing it with give time periods.
  
+ The code is live in plunker :-
+ Plunkr link :- http://goo.gl/LoqxDP
+ 
